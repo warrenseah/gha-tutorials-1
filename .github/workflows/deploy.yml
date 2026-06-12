@@ -1,7 +1,7 @@
 name: Deploy Application
 on: push
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -10,5 +10,9 @@ jobs:
         run: npm install
       - name: Lint ReactJS Application
         run: npm run lint
+      - name: Run Tests
+        run: npm test
       - name: Build and Deploy
         run: npm run build
+      - name: Deploy to Production
+        run: echo "Deploying to production server..."
